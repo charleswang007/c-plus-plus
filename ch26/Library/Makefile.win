@@ -1,0 +1,42 @@
+# Project: Library
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = C:\Dev-Cpp\bin\g++.exe
+CC   = C:\Dev-Cpp\bin\gcc.exe
+WINDRES = C:\Dev-Cpp\bin\windres.exe
+RES  = 
+OBJ  = BOOK.o LIBRARIAN.o LIBRARY_TMP_DB.o LIBRARYOBJECT.o Reader.o $(RES)
+LINKOBJ  = BOOK.o LIBRARIAN.o LIBRARY_TMP_DB.o LIBRARYOBJECT.o Reader.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib"  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Library.exe
+CXXFLAGS = $(CXXINCS)   -fexceptions
+CFLAGS = $(INCS)   -fexceptions
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Library.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Library.exe" $(LIBS)
+
+BOOK.o: BOOK.cpp
+	$(CPP) -c BOOK.cpp -o BOOK.o $(CXXFLAGS)
+
+LIBRARIAN.o: LIBRARIAN.cpp
+	$(CPP) -c LIBRARIAN.cpp -o LIBRARIAN.o $(CXXFLAGS)
+
+LIBRARY_TMP_DB.o: LIBRARY_TMP_DB.CPP
+	$(CPP) -c LIBRARY_TMP_DB.CPP -o LIBRARY_TMP_DB.o $(CXXFLAGS)
+
+LIBRARYOBJECT.o: LIBRARYOBJECT.cpp
+	$(CPP) -c LIBRARYOBJECT.cpp -o LIBRARYOBJECT.o $(CXXFLAGS)
+
+Reader.o: Reader.cpp
+	$(CPP) -c Reader.cpp -o Reader.o $(CXXFLAGS)
